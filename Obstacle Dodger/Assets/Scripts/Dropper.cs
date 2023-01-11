@@ -9,7 +9,6 @@ public class Dropper : MonoBehaviour
     private MeshRenderer meshRenderer;
     private Rigidbody rigidBody;
 
-    // Start is called before the first frame update
     void Start()
     {
         meshRenderer = GetComponent<MeshRenderer>();
@@ -19,17 +18,15 @@ public class Dropper : MonoBehaviour
         rigidBody.useGravity = false;
     }
 
-    // Update is called once per frame
     void Update()
     {
-       // Debug.Log(Time.time + "seconds has elapsed since the game started");
-        if(timeBeforeFalling <= Time.time)
+        if(timeBeforeFalling <= Time.timeSinceLevelLoad)
         {
             rigidBody.useGravity = true;
             meshRenderer.enabled = true;
         }
         
-        if(timeBeforeFalling * gravityDisableTimeMultiplier <= Time.time)
+        if(timeBeforeFalling * gravityDisableTimeMultiplier <= Time.timeSinceLevelLoad)
         {
             rigidBody.useGravity = false;
             rigidBody.isKinematic = true;
