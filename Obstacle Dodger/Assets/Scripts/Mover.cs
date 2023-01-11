@@ -18,6 +18,8 @@ public class Mover : MonoBehaviour
 
     void Start() 
     {
+        PlayerData.playerScore = 0;
+
         if(GlobalSettings.settingsModeIsActive)
         {
             movementSpeed = GlobalSettings.movementSpeedSettings;
